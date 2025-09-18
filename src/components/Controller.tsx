@@ -70,8 +70,15 @@ const Controller = ({
   useFocusEffect(
     useCallback(() => {
       const storedButtonId = storage.getString(LAST_PRESSED_BUTTON_ID_KEY);
+      setLastSelectedButton(null);
       if (storedButtonId) {
+        setTimeout(() => {
         setLastSelectedButton(storedButtonId);
+        }, 1000);
+      }
+
+      return() =>{
+         setLastSelectedButton(null);
       }
     }, []),
   );
@@ -228,7 +235,7 @@ const Controller = ({
 
     onButtonPress(button.id);
     storage.set(LAST_PRESSED_BUTTON_ID_KEY, button.id);
-    setLastSelectedButton(button.id);
+    // setLastSelectedButton(button.id);
   };
 
   const handleOnLongPress = (button: any) => {

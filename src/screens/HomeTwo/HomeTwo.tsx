@@ -56,6 +56,16 @@ const imageGroups = [
     APP_IMAGE.BMW_5_8,
   ],
   [
+    APP_IMAGE.BMW_10_1,
+    APP_IMAGE.BMW_10_2,
+    APP_IMAGE.BMW_10_3,
+    APP_IMAGE.BMW_10_4,
+    APP_IMAGE.BMW_10_5,
+    APP_IMAGE.BMW_10_6,
+    APP_IMAGE.BMW_10_7,
+    APP_IMAGE.BMW_10_8,
+  ],
+  [
     APP_IMAGE.BMW_6_1,
     APP_IMAGE.BMW_6_2,
     APP_IMAGE.BMW_6_3,
@@ -87,16 +97,6 @@ const imageGroups = [
     APP_IMAGE.BMW_9_6,
     APP_IMAGE.BMW_9_7,
   ],
-  [
-    APP_IMAGE.BMW_10_1,
-    APP_IMAGE.BMW_10_2,
-    APP_IMAGE.BMW_10_3,
-    APP_IMAGE.BMW_10_4,
-    APP_IMAGE.BMW_10_5,
-    APP_IMAGE.BMW_10_6,
-    APP_IMAGE.BMW_10_7,
-    APP_IMAGE.BMW_10_8,
-  ],
 ];
 
 const sounds = [
@@ -105,11 +105,11 @@ const sounds = [
   ['bmw_3.m4a'],
   ['bmw_4.m4a'],
   ['bmw_5.m4a'],
+  ['bmw_10.m4a'],
   ['bmw_6.m4a'],
   ['bmw_7.m4a'],
   ['bmw_8.m4a'],
   ['bmw_9.m4a'],
-  ['bmw_10.m4a'],
 ];
 
 const HomeTwo = () => {

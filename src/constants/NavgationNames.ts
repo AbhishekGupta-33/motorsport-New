@@ -12,9 +12,9 @@ export const ControllerButtonId = {
   LeftYellow: 'leftYellow',
   LeftBlack: 'leftBlack',
 
+  RightPaddle: 'rightPaddle',
   RightWhite: 'rightWhite',
   RightYellow: 'rightYellow',
   RightRed: 'rightRed',
   RightGreen: 'rightGreen',
-  RightPaddle: 'rightPaddle',
 };

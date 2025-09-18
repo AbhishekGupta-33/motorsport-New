@@ -272,7 +272,7 @@ const EngineDetail: React.FC<any> = props => {
                   styles.listItemView,
                   {
                     padding: theme.spacing.sm,
-                    justifyContent: 'space-between',
+                    justifyContent: isTablet() ? 'center' : 'space-between',
                   },
                 ]}>
                 <AppText size={'xs'} style={styles.experienceText}>
@@ -454,6 +454,7 @@ const styles = StyleSheet.create({
     // paddingBottom: theme.spacing.md,
     fontWeight: 'bold',
     textAlign: 'center',
+    marginBottom: isTablet() ? '5%' : 0
   },
   playButtonStyle: {
     width: isTablet() ? 100 : 50,
@@ -470,7 +471,7 @@ const styles = StyleSheet.create({
   startEngintext: {
     color: theme.color.white,
     textAlign: 'center',
-    fontSize: isTablet() ? 12 : 8,
+    fontSize: isTablet() ? 16 : 8,
   },
 });
 

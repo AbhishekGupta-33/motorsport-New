@@ -24,6 +24,8 @@ import StackedFastImageLayout from '../../components/StackedFastImageLayout';
 
 const {height, width} = Dimensions.get('window');
 const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
+const LAST_PRESSED_BUTTON_ID_KEY = 'lastPressedButtonId';
+
 
 const SplashScreen = () => {
   const {t} = useTranslation();
@@ -38,6 +40,7 @@ const SplashScreen = () => {
 
     setTimeout(() => {
       const isLangSelected = storage.getString('lang');
+      storage.set(LAST_PRESSED_BUTTON_ID_KEY, '')
       isLangSelected && i18n.changeLanguage(isLangSelected);
       navigation.replace(
         isLangSelected ? NavgationNames.homeTwo : NavgationNames.home,
