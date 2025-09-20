@@ -60,7 +60,7 @@ export default function Stacks() {
           };
         },
         cardStyle: {
-          backgroundColor: theme.color.pureMaroon, // 👈 Set to match your app background
+          backgroundColor: theme.color.maroon, // 👈 Set to match your app background
         },
       }}>
       <Stack.Screen name="splash" component={SplashScreen} />

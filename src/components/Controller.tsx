@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Animated,
   Easing,
+  Platform,
 } from 'react-native';
 import FastImage from '@d11/react-native-fast-image';
 import {useTranslation} from 'react-i18next';
@@ -350,7 +351,7 @@ const styles = StyleSheet.create({
     padding: theme.spacing.sm,
     alignSelf: 'flex-start',
     position: 'absolute',
-    left: isTablet() ? '20%' : '8%',
+    left: isTablet() ? '20%' : Platform.OS  === 'ios' ? '12%' : '8%',
     top: isTablet() ? '8%' : '5%',
   },
   title: {
