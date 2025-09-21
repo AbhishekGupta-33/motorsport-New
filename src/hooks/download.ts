@@ -1,55 +1,56 @@
 import { Platform, Alert } from 'react-native';
 import * as RNFS from '@dr.pogodin/react-native-fs';
 
-export const downloadAndShareMP3 = async (fileName: string) => {
+export const downloadAndShareMP3 = async (fileName: string, t:any) => {
+
   try {
+    console.log('Starting downloadAndShareMP3 function for file:', fileName);
+
     const destPath = `${RNFS.TemporaryDirectoryPath}/${fileName}`;
     let sourcePath = '';
 
-    console.log('🔧 Start MP3 download:', fileName);
-    console.log('📁 Destination path:', destPath);
+    console.log('Destination path:', destPath);
 
     if (Platform.OS === 'ios') {
+      console.log('Platform is iOS. Starting file operation...');
       sourcePath = `${RNFS.MainBundlePath}/${fileName}`;
-      console.log('📁 iOS source path:', sourcePath);
+      console.log('Source path:', sourcePath);
 
       const fileAlreadyExists = await RNFS.exists(destPath);
+      console.log('Checking if file already exists at destination. Exists:', fileAlreadyExists);
 
       if (fileAlreadyExists) {
-        console.log('ℹ️ File already exists at destination path.');
-        Alert.alert('✅ File Path', `The file already exists:\n${destPath}`);
+        console.warn('File already exists. Bypassing copy operation.');
+        Alert.alert(t('alertTitles.fileSaved'), t('alertMessages.fileAlreadyExists', { destPath }));
         return;
       }
 
       await RNFS.copyFile(sourcePath, destPath);
-      console.log('✅ File copied to temp path');
+      console.log('File successfully copied to temporary directory.');
     } else if (Platform.OS === 'android') {
+      console.log('Platform is Android. Starting file operation...');
       const assetFilePath = `audio/${fileName}`;
-      console.log('📁 Android asset path:', assetFilePath);
+      console.log('Asset path:', assetFilePath);
 
       const exists = await RNFS.existsAssets(assetFilePath);
-      console.log('✅ Asset exists:', exists);
+      console.log('Checking if asset exists. Exists:', exists);
 
       if (!exists) {
-        console.warn(`⚠️ Asset not found: ${assetFilePath}`);
+        console.error('Asset not found:', assetFilePath);
+        Alert.alert(t('alertTitles.error'), t('alertMessages.assetNotFound'));
         return;
       }
 
       const assetData = await RNFS.readFileAssets(assetFilePath, 'base64');
+      console.log('Asset read successfully. Starting write operation...');
       await RNFS.writeFile(destPath, assetData, 'base64');
-      console.log('✅ File written to temp path');
+      console.log('File successfully written to temporary directory.');
     }
 
-    // await Share.open({
-    //   url: `file://${destPath}`,
-    //   filename: fileName.toUpperCase(),
-    //   type: 'audio/mpeg',
-    //   title: 'Save MP3',
-    // });
-
-    Alert.alert('✅ File Saved', `Path to file:\n${destPath}`);
+    console.log('File operation completed successfully. Showing alert to user.');
+    Alert.alert(t('alertTitles.fileSaved'), t('alertMessages.fileSavedInstructions', { fileName, destPath }));
   } catch (error: any) {
-    console.error('❌ Failed to share MP3:', error);
-    Alert.alert('❌ Error', error?.message || 'Something went wrong while saving the MP3 file.');
+    console.error('An error occurred during file operation:', error);
+    Alert.alert(t('alertTitles.error'), error?.message || t('alertMessages.somethingWentWrong'));
   }
 };

@@ -144,6 +144,18 @@
     "play": "Reproducir",
     "default": "Predeterminado"
   },
+  "alertTitles": {
+    "fileSaved": "✅ Archivo guardado",
+    "filePath": "✅ Ruta del archivo",
+    "error": "❌ Error"
+  },
+  "alertMessages": {
+    "fileAlreadyExists": "El archivo ya existe:\n{{destPath}} Para establecerlo como tono de llamada, usa iTunes.",
+    "filePath": "Ruta al archivo:\n{{destPath}}",
+    "assetNotFound": "Activo no encontrado.",
+    "fileSavedInstructions": "Tu archivo ha sido guardado en: {{destPath}} Para establecerlo como tono de llamada, usa iTunes.",
+    "somethingWentWrong": "Ocurrió un error al guardar el archivo MP3."
+  },
   "paymentModal": {
     "title": "Sonido de motor BMW Premium",
     "subtitle": "Experimente el auténtico rugido del motor BMW",

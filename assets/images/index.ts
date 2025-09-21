@@ -71,4 +71,5 @@ export const APP_IMAGE = {
   shareIcon: require('./share-icon.png'),
   startEngine: require('./startEngine.png'),
   CarbonLayer: require('./CarbonLayer.png'),
+  CarbonBorder: require('./CarbonBorder.png'),
 };

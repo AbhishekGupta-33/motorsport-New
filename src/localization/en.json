@@ -144,6 +144,18 @@
     "play": "Play",
     "default": "Default"
   },
+  "alertTitles": {
+    "fileSaved": "✅ File Saved",
+    "filePath": "✅ File Path",
+    "error": "❌ Error"
+  },
+  "alertMessages": {
+    "fileAlreadyExists": "The file already exists:\n{{destPath}}  wwqTo set it as a ringtone, use iTune.",
+    "filePath": "Path to file:\n{{destPath}}",
+    "assetNotFound": "Asset not found.",
+    "fileSavedInstructions": "Your file, has been saved to file:{{destPath}} To set it as a ringtone, use iTune.",
+    "somethingWentWrong": "Something went wrong while saving the MP3 file."
+  },
   "paymentModal": {
     "title": "Premium BMW Engine Sound",
     "subtitle": "Experience authentic BMW engine roar",

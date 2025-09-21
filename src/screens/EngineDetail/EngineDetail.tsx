@@ -104,7 +104,7 @@ const EngineDetail: React.FC<any> = props => {
     //   return;
     // }
     if (Platform.OS === 'ios') {
-      await downloadAndShareMP3(motorsportData?.sound[0]);
+      await downloadAndShareMP3(motorsportData?.sound[0], t);
     } else {
       setRingtone(motorsportData?.sound[0]);
     }
@@ -151,12 +151,12 @@ const EngineDetail: React.FC<any> = props => {
   return (
     <View style={styles.container}>
       <FastImage
-        source={APP_IMAGE.LinearGradiant}
+        source={APP_IMAGE.CarbonBorder}
         style={styles.backgroundImage}
-        resizeMode={FastImage.resizeMode.cover}
-        tintColor={theme.color.white}
+        resizeMode={FastImage.resizeMode.stretch}
+        // tintColor={theme.color.white}
       />
-      <SafeAreaView style={{flex: 1, backgroundColor: theme.color.white}}>
+      <SafeAreaView style={{flex: 1,}}>
         <View style={styles.topContainer}>
           <View style={styles.topView}>
             <TouchableOpacity style={styles.topleftView} onPress={handleShare}>
@@ -311,7 +311,11 @@ const styles = StyleSheet.create({
   },
   topContainer: {
     justifyContent: isTablet() ? 'space-evenly' : 'flex-start',
-    flex: 1,
+    // flex: 1,
+    height: isTablet() ? '95%'  : '100%',
+    alignSelf: 'center',
+    top: '2%',
+    width: isTablet() ? '90%'  : '100%'
   },
   topView: {
     flexDirection: 'row',
@@ -341,8 +345,11 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     position: 'absolute',
-    width: '100%',
-    height: '100%',
+    width: isTablet() ? '105%' : '105%' ,
+    height: isTablet() ? '110%' : '115%',
+    top: '-8%',
+    alignSelf: 'center',
+    backgroundColor: theme.color.white
   },
   closeButton: {},
   closeText: {
@@ -350,7 +357,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   leftPanel: {
-    width: '30%',
+    width: isTablet() ? '30%' :   Platform.OS === 'ios' ?  '30%' : '26%',
+    height: isTablet() ? '100%' :   Platform.OS === 'ios' ?  '98%' : '97%',
     borderWidth: 1,
     borderColor: theme.color.black,
     justifyContent: 'space-evenly',
@@ -402,6 +410,7 @@ const styles = StyleSheet.create({
   },
   centerPanel: {
     width: '40%',
+    height: isTablet() ? '100%' :   Platform.OS === 'ios' ?  '98%' : '97%',
     alignItems: 'center',
   },
   mainTitle: {
@@ -415,8 +424,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   carousel: {
-    width: isTablet() ? width * 0.38 : width * 0.32,
-    height: isTablet() ? height * 0.6 : height * 0.53,
+    width: isTablet() ? width * 0.34 : width * 0.32,
+    height: isTablet() ? height * 0.6 : Platform.OS === 'ios' ? height * 0.53 : height * 0.50,
     // backgroundColor:'red'
   },
   carouselItem: {
@@ -424,8 +433,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   carImage: {
-    width: isTablet() ? width * 0.38 : width * 0.32,
-    height: isTablet() ? height * 0.6 : height * 0.53,
+    width: isTablet() ? width * 0.34 : width * 0.32,
+    height: isTablet() ? height * 0.6 :Platform.OS === 'ios' ? height * 0.53 : height * 0.50,
     // backgroundColor:'pink'
   },
   dotsContainer: {
@@ -440,7 +449,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   rightPanel: {
-    width: '30%',
+    width: isTablet() ? '30%' :   Platform.OS === 'ios' ?  '30%' : '26%',
+    height: isTablet() ? '100%' :   Platform.OS === 'ios' ?  '98%' : '97%',
     borderWidth: 1,
     borderColor: theme.color.black,
     justifyContent: 'space-evenly',

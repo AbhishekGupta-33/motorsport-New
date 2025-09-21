@@ -144,6 +144,18 @@
     "play": "Abspielen",
     "default": "Standard"
   },
+  "alertTitles": {
+    "fileSaved": "✅ Datei gespeichert",
+    "filePath": "✅ Dateipfad",
+    "error": "❌ Fehler"
+  },
+  "alertMessages": {
+    "fileAlreadyExists": "Die Datei existiert bereits:\n{{destPath}} Um sie als Klingelton festzulegen, verwende iTunes.",
+    "filePath": "Pfad zur Datei:\n{{destPath}}",
+    "assetNotFound": "Asset nicht gefunden.",
+    "fileSavedInstructions": "Ihre Datei wurde gespeichert unter: {{destPath}} Um sie als Klingelton festzulegen, verwende iTunes.",
+    "somethingWentWrong": "Beim Speichern der MP3-Datei ist etwas schiefgelaufen."
+  },
   "paymentModal": {
     "title": "Premium BMW Motorsound",
     "subtitle": "Erleben Sie den authentischen BMW Motorenbrüllen",
