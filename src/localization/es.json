@@ -145,8 +145,8 @@
     "default": "Predeterminado"
   },
   "alertTitles": {
-    "fileSaved": "✅ Archivo guardado",
-    "filePath": "✅ Ruta del archivo",
+    "fileSaved": "⚠️ Archivo guardado",
+    "filePath": "⚠️ Ruta del archivo",
     "error": "❌ Error"
   },
   "alertMessages": {

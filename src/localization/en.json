@@ -145,8 +145,8 @@
     "default": "Default"
   },
   "alertTitles": {
-    "fileSaved": "✅ File Saved",
-    "filePath": "✅ File Path",
+    "fileSaved": "⚠️ File Saved",
+    "filePath": "⚠️ File Path",
     "error": "❌ Error"
   },
   "alertMessages": {
