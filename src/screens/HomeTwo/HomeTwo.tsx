@@ -36,8 +36,18 @@ const imageGroups = [
     APP_IMAGE.BMW_1_7,
     APP_IMAGE.BMW_1_8,
     APP_IMAGE.BMW_1_9,
+    APP_IMAGE.BMW_1_10,
+    APP_IMAGE.BMW_1_11,
   ],
-  [APP_IMAGE.BMW_2_1, APP_IMAGE.BMW_2_2, APP_IMAGE.BMW_2_3, APP_IMAGE.BMW_2_4],
+  [
+    APP_IMAGE.BMW_2_1,
+    APP_IMAGE.BMW_2_2,
+    APP_IMAGE.BMW_2_3,
+    APP_IMAGE.BMW_2_4,
+    APP_IMAGE.BMW_2_5,
+    APP_IMAGE.BMW_2_6,
+    APP_IMAGE.BMW_2_7,
+  ],
   [APP_IMAGE.BMW_3_1, APP_IMAGE.BMW_3_2, APP_IMAGE.BMW_3_3, APP_IMAGE.BMW_3_4],
   [
     APP_IMAGE.BMW_4_1,
@@ -45,9 +55,12 @@ const imageGroups = [
     APP_IMAGE.BMW_4_3,
     APP_IMAGE.BMW_4_4,
     APP_IMAGE.BMW_4_5,
+    APP_IMAGE.BMW_4_6,
+    APP_IMAGE.BMW_4_7,
   ],
   [
     APP_IMAGE.BMW_5_1,
+    APP_IMAGE.BMW_5_2,
     APP_IMAGE.BMW_5_3,
     APP_IMAGE.BMW_5_4,
     APP_IMAGE.BMW_5_5,
@@ -64,6 +77,8 @@ const imageGroups = [
     APP_IMAGE.BMW_10_6,
     APP_IMAGE.BMW_10_7,
     APP_IMAGE.BMW_10_8,
+    APP_IMAGE.BMW_10_9,
+    APP_IMAGE.BMW_10_10,
   ],
   [
     APP_IMAGE.BMW_6_1,
@@ -78,6 +93,9 @@ const imageGroups = [
     APP_IMAGE.BMW_7_3,
     APP_IMAGE.BMW_7_4,
     APP_IMAGE.BMW_7_5,
+    APP_IMAGE.BMW_7_6,
+    APP_IMAGE.BMW_7_7,
+    APP_IMAGE.BMW_7_8,
   ],
   [
     APP_IMAGE.BMW_8_1,
@@ -177,7 +195,10 @@ const HomeTwo = () => {
       {duration, easing},
     );
     anim.topImageScale.value = withTiming(expanded ? 1 : 0, {duration, easing});
-    anim.middleImageOpacity.value = withTiming(expanded ? 1 : 0, {duration, easing});
+    anim.middleImageOpacity.value = withTiming(expanded ? 1 : 0, {
+      duration,
+      easing,
+    });
   }, []);
 
   useFocusEffect(
