@@ -109,4 +109,6 @@ export const APP_IMAGE = {
   startEngine: require('./startEngine.png'),
   CarbonLayer: require('./CarbonLayer.png'),
   CarbonBorder: require('./CarbonBorder.png'),
+  border_1: require('./border_1.png'),
+  border_2: require('./border_2.png'),
 };

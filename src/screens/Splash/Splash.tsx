@@ -62,28 +62,9 @@ const SplashScreen = () => {
 
   return (
     <>
-      {/* <AppBackground
-        backgroundImage={APP_IMAGE.splashBG}
-        controllerImage={APP_IMAGE.controler}
-        style={styles.mainView}>
-        <ImageBackgroundImage
-          source={APP_IMAGE.CarbonLayer}
-          imageStyle={styles.blurImage}
-          resizeMode={'stretch'}
-          style={styles.centeredContent}>
-          <ImageBackgroundImage
-            source={APP_IMAGE.RectangleBlur}
-            imageStyle={styles.blurInnerImage}
-            style={styles.centeredPurpleContent}>
-            <AppText size={ isTablet() ? 'lg' : 'md'} style={styles.title}>
-              {t('splash_title').toUpperCase()}
-            </AppText>
-          </ImageBackgroundImage>
-        </ImageBackgroundImage>
-      </AppBackground> */}
       <StackedFastImageLayout
         backgroundImage={APP_IMAGE.splashBG}
-        middleImage={APP_IMAGE.CarbonLayer}
+        middleImage={APP_IMAGE.border_2}
         topImage={APP_IMAGE.controler}
         topImageStyle={styles.topImageStyle}
         containerStyle={{height: '100%'}}
@@ -158,9 +139,9 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   middleImageStyle: {
-    top: height * 0.33,
+    top:  isTablet() ?  height * 0.34 : height * 0.36,
     width: isTablet() ? width * 0.45 : width * 0.25,
-    height: height * 0.5,
+    height: isTablet() ?  height * 0.33 : height * 0.3,
   },
 });
 

@@ -43,7 +43,7 @@
       "model": "P66",
       "engine": "BMW P66B40",
       "enginDetail": "4.0L, Dry Sump, V8 (4,000) Compression 13.0:1",
-      "topSpeed": "86+ mph / 300+ kph",
+      "topSpeed": "186+ mph / 300+ kph",
       "yearRange": "2012 - 2018",
       "power": "480+ hp @ 8,400 RPM \"Restricted\"",
       "chassis": "BMW Motorsport M3 & M4 DTM \"Weight 2,425 lbs. or 1,100 kg.\""
@@ -71,7 +71,7 @@
     {
       "title": "BMW Motorsport",
       "model": "S50",
-      "engine": "BMW S50B32",
+      "engine": "BMW S50B30",
       "enginDetail": "3.0L (3,018cc) & 3.2L (3,201cc), Dry Sump, in-line six cyl.",
       "topSpeed": "168+ mph / 270.37+ km/h",
       "yearRange": "1992 - 1999",
@@ -82,7 +82,7 @@
       "title": "BMW Motorsport",
       "model": "P54",
       "engine": "BMW P54B32",
-      "enginDetail": "3.2L, (3246cc) & P54/S54B34 Stroked 3.4L (3400cc) Dry Sump, in-line, Six-Cyl. NOTES",
+      "enginDetail": "3.2L, (3246cc) & P54/S54B34 Stroked 3.4L (3400cc) Dry Sump, in-line, Six-Cyl.",
       "topSpeed": "177+ mph / 285+ kph",
       "yearRange": "2001 - 2006",
       "power": "425+ bhp & 315 ft. lbs. TQ. (Stroked ALMS spec. 3.4L, 461 bhp & 340 ft. lbs. TQ.)",

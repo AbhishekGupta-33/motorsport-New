@@ -151,7 +151,7 @@ const EngineDetail: React.FC<any> = props => {
   return (
     <View style={styles.container}>
       <FastImage
-        source={APP_IMAGE.CarbonBorder}
+        source={APP_IMAGE.border_1}
         style={styles.backgroundImage}
         resizeMode={FastImage.resizeMode.stretch}
         // tintColor={theme.color.white}
@@ -345,9 +345,9 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     position: 'absolute',
-    width: isTablet() ? '105%' : '105%' ,
-    height: isTablet() ? '110%' : '115%',
-    top: '-8%',
+    width: isTablet() ? '100%' : '100%' ,
+    height: isTablet() ? '100%' : '100%',
+    // top: '-8%',
     alignSelf: 'center',
     backgroundColor: theme.color.white
   },

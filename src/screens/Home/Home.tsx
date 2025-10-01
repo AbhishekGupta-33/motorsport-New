@@ -23,13 +23,13 @@ const Home = () => {
     <>
       <StackedFastImageLayout
         backgroundImage={APP_IMAGE.HomeBG}
-        middleImage={APP_IMAGE.CarbonLayer}
+        middleImage={APP_IMAGE.border_2}
         topImage={APP_IMAGE.FullController}
         containerStyle={{height: '100%'}}
         middleImageStyle={{
-          top: SCREEN_HEIGHT * 0.09,
-          width: isTablet() ?  SCREEN_WIDTH * 0.45 : SCREEN_WIDTH * 0.36,
-          height: SCREEN_HEIGHT * 0.7,
+          top: isTablet() ? SCREEN_HEIGHT * 0.17 : SCREEN_HEIGHT * 0.1,
+          width: isTablet() ?  SCREEN_WIDTH * 0.4 : SCREEN_WIDTH * 0.36,
+          height: isTablet() ?  SCREEN_HEIGHT * 0.32 : SCREEN_HEIGHT * 0.4,
         }}
         childrenStyle={styles.viewStyle}>
         {!intialLoad ? (

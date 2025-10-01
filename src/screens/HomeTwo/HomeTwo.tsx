@@ -206,7 +206,7 @@ const HomeTwo = () => {
     anim.childrenOpacity.value = withTiming(expanded ? 1 : 0, {duration: 300});
     anim.middleImageScale.value = withTiming(1, {duration, easing});
     anim.middleImageTop.value = withTiming(
-      expanded ? SCREEN_HEIGHT * 0.09 : 0,
+      expanded ? isTablet() ? SCREEN_HEIGHT * 0.15 : SCREEN_HEIGHT * 0.09 : 0,
       {
         duration,
         easing,
@@ -215,13 +215,13 @@ const HomeTwo = () => {
     anim.middleImageWidth.value = withTiming(
       expanded
         ? isTablet()
-          ? SCREEN_WIDTH * 0.45
+          ? SCREEN_WIDTH * 0.43
           : SCREEN_WIDTH * 0.38
         : SCREEN_WIDTH,
       {duration, easing},
     );
     anim.middleImageHeight.value = withTiming(
-      expanded ? SCREEN_HEIGHT * 0.69 : SCREEN_HEIGHT,
+      expanded ? isTablet() ? SCREEN_HEIGHT * 0.34 :  SCREEN_HEIGHT * 0.4 : SCREEN_HEIGHT,
       {duration, easing},
     );
     anim.topImageScale.value = withTiming(expanded ? 1 : 0, {duration, easing});
@@ -289,7 +289,7 @@ const HomeTwo = () => {
   return (
     <StackedFastImageLayout
       backgroundImage={APP_IMAGE.HomeBG}
-      middleImage={APP_IMAGE.CarbonLayer}
+      middleImage={APP_IMAGE.border_2}
       topImage={APP_IMAGE.FullController}
       containerStyle={{height: '100%'}}
       childrenStyle={styles.viewStyle}
