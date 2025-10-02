@@ -39,7 +39,7 @@
 	<array>
 		<string>arm64</string>
 	</array>
-	<key>UISupportedInterfaceOrie	ntations~ipad</key>
+	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
