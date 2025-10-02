@@ -14,12 +14,14 @@ interface InfoModalProps {
   visible: boolean;
   onClose: () => void;
   onDownload?: () => void; // 👈 optional download callback
+  t: any;
 }
 
 const InfoModal: React.FC<InfoModalProps> = ({
   visible,
   onClose,
   onDownload,
+  t,
 }) => {
   return (
     <Modal
@@ -31,7 +33,7 @@ const InfoModal: React.FC<InfoModalProps> = ({
         <View style={styles.modalContainer}>
           {/* Header */}
           <View style={styles.header}>
-            <Text style={styles.title}>🎵 Set Ringtone on iOS</Text>
+            <Text style={styles.title}>🎵 {t('iosRingtoneTitle')}</Text>
             <TouchableOpacity onPress={onClose}>
               <AppText size={isTablet() ? 'md' : 'xs'} style={styles.closeIcon}>
                 ✕
@@ -41,36 +43,18 @@ const InfoModal: React.FC<InfoModalProps> = ({
 
           {/* Steps */}
           <View style={styles.content}>
-            <Text style={styles.step}>
-              1️⃣ Tap <Text style={styles.bold}>Download Sound</Text> below.
-            </Text>
-            <Text style={styles.step}>
-              2️⃣ The <Text style={styles.bold}>MP3 file</Text> will be saved.
-            </Text>
-            <Text style={styles.step}>
-              3️⃣ Open <Text style={styles.bold}>Files app</Text> → locate sound.
-            </Text>
-            <Text style={styles.step}>
-              4️⃣ Open <Text style={styles.bold}>GarageBand</Text> (free on App Store).
-            </Text>
-            <Text style={styles.step}>
-              5️⃣ Import the sound & export as <Text style={styles.bold}>Ringtone</Text>.
-            </Text>
-            <Text style={styles.step}>
-              6️⃣ Go to <Text style={styles.bold}>Settings → Sounds → Ringtone</Text> and set it 🎶
-            </Text>
+            {t('iosRingtoneSteps', {returnObjects: true}).map((step, index) => (
+              <Text style={styles.step} key={index}>
+                {step.plain}
+                <Text style={styles.bold}>{step.bold}</Text>
+                {step.after}
+              </Text>
+            ))}
           </View>
-
-          {/* Download Button */}
-          {onDownload && (
-            <TouchableOpacity style={styles.downloadButton} onPress={onDownload}>
-              <Text style={styles.downloadText}>⬇️ Download Sound</Text>
-            </TouchableOpacity>
-          )}
 
           {/* Footer Close Button */}
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-            <Text style={styles.closeText}>Got it ✨</Text>
+            <Text style={styles.closeText}>{t('gotIt')} ✨</Text>
           </TouchableOpacity>
         </View>
       </View>

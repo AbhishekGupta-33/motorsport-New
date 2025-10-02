@@ -37,6 +37,16 @@
     "set_failed": "Failed to set ringtone."
   },
   "cancel": "Cancel",
+  "iosRingtoneTitle": "Set Ringtone on iOS",
+  "gotIt": "Got it",
+  "iosRingtoneSteps": [
+    { "plain": "1️⃣ Tap ", "bold": "Download Sound", "after": " below." },
+    { "plain": "2️⃣ The ", "bold": "MP3 file", "after": " will be saved." },
+    { "plain": "3️⃣ Open ", "bold": "Files app", "after": " → locate sound." },
+    { "plain": "4️⃣ Open ", "bold": "GarageBand", "after": " (free on App Store)." },
+    { "plain": "5️⃣ Import the sound & export as ", "bold": "Ringtone", "after": "." },
+    { "plain": "6️⃣ Go to ", "bold": "Settings → Sounds → Ringtone", "after": " and set it 🎶" }
+  ],
   "moterListText": [
     {
       "title": "BMW Motorsport",

@@ -317,6 +317,7 @@ const EngineDetail: React.FC<any> = props => {
       <InfoModal
         visible={modalVisible}
         onClose={() => setModalVisible(false)}
+        t={t}
       />
     </View>
   );

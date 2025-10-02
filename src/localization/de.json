@@ -37,6 +37,16 @@
     "set_failed": "Klingelton konnte nicht festgelegt werden."
   },
   "cancel": "Abbrechen",
+  "iosRingtoneTitle": "Klingelton auf iOS einstellen",
+  "gotIt": "Alles klar!",
+  "iosRingtoneSteps": [
+    { "plain": "1️⃣ Tippe unten auf ", "bold": "Sound herunterladen", "after": "." },
+    { "plain": "2️⃣ Die ", "bold": "MP3-Datei", "after": " wird gespeichert." },
+    { "plain": "3️⃣ Öffne die ", "bold": "Dateien-App", "after": " → finde den Sound." },
+    { "plain": "4️⃣ Öffne ", "bold": "GarageBand", "after": " (kostenlos im App Store)." },
+    { "plain": "5️⃣ Importiere den Sound und exportiere ihn als ", "bold": "Klingelton", "after": "." },
+    { "plain": "6️⃣ Gehe zu ", "bold": "Einstellungen → Töne → Klingelton", "after": " und setze ihn 🎶" }
+  ],
   "motorenListeText": [
     {
       "title": "BMW Motorsport",

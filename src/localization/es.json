@@ -37,6 +37,16 @@
     "set_failed": "Error al establecer el tono de llamada."
   },
   "cancel": "Cancelar",
+  "iosRingtoneTitle": "Configurar tono en iOS",
+  "gotIt": "¡Entendido",
+  "iosRingtoneSteps": [
+    { "plain": "1️⃣ Toca ", "bold": "Descargar sonido", "after": " abajo." },
+    { "plain": "2️⃣ El archivo ", "bold": "MP3", "after": " se guardará." },
+    { "plain": "3️⃣ Abre la ", "bold": "aplicación Archivos", "after": " → busca el sonido." },
+    { "plain": "4️⃣ Abre ", "bold": "GarageBand", "after": " (gratis en App Store)." },
+    { "plain": "5️⃣ Importa el sonido y expórtalo como ", "bold": "Tono de llamada", "after": "." },
+    { "plain": "6️⃣ Ve a ", "bold": "Ajustes → Sonidos → Tono de llamada", "after": " y configúralo 🎶" }
+  ],
   "moterListText": [
     {
       "title": "BMW Motorsport",
