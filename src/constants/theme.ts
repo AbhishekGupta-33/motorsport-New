@@ -13,7 +13,7 @@ export const theme = {
     blue: '#0411c6',
     green: '#35EC1D',
     red: '#b80000ff',
-    yellow: '#f0c208ff'
+    yellow: '#f0c208ff' // 'rgba(255, 128, 0, 1)'
   },
   spacing: {
     // Tiny

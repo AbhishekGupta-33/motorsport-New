@@ -23,6 +23,7 @@ import SoundListModel from '../../components/SoundListModel';
 import {useGyroSound} from '../../hooks/useGyroSound';
 import Share from 'react-native-share';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import InfoModal from './InfoModal';
 
 const {height, width} = Dimensions.get('window');
 
@@ -62,6 +63,7 @@ const EngineDetail: React.FC<any> = props => {
   const [isPaymentModel, setIsPaymentModel] = useState(false);
   const [isDefaultPlay, setIsDefaultPlay] = useState(false);
   const [selectedSound, setSelectedSound] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
   const flatListRef = useRef<FlatList<any>>(null);
   const {t} = useTranslation();
   const {setRingtone} = useRingtoneSetter();
@@ -104,7 +106,8 @@ const EngineDetail: React.FC<any> = props => {
     //   return;
     // }
     if (Platform.OS === 'ios') {
-      await downloadAndShareMP3(motorsportData?.sound[0], t);
+      const title = `${motorsportData.title}_${motorsportData.model}.mp3`
+      await downloadAndShareMP3(motorsportData?.sound[0], t, title);
     } else {
       setRingtone(motorsportData?.sound[0]);
     }
@@ -144,6 +147,8 @@ const EngineDetail: React.FC<any> = props => {
     }
   };
 
+  const onInfoClick = () => setModalVisible(!modalVisible);
+
   useEffect(() => {
     if (selectedSound) onPlayfullSound();
   }, [selectedSound]);
@@ -156,7 +161,7 @@ const EngineDetail: React.FC<any> = props => {
         resizeMode={FastImage.resizeMode.stretch}
         // tintColor={theme.color.white}
       />
-      <SafeAreaView style={{flex: 1,}}>
+      <SafeAreaView style={{flex: 1}}>
         <View style={styles.topContainer}>
           <View style={styles.topView}>
             <TouchableOpacity style={styles.topleftView} onPress={handleShare}>
@@ -167,7 +172,7 @@ const EngineDetail: React.FC<any> = props => {
               />
             </TouchableOpacity>
             <TouchableOpacity style={styles.closeButton} onPress={onClosePress}>
-              <AppText  size={isTablet() ? 'md' : 'xs'} style={styles.closeText}>
+              <AppText size={isTablet() ? 'md' : 'xs'} style={styles.closeText}>
                 {t('close')} ✕
               </AppText>
             </TouchableOpacity>
@@ -280,11 +285,19 @@ const EngineDetail: React.FC<any> = props => {
                     ? t('AndroidRingTone')
                     : t('IosSaveFile')}
                 </AppText>
-                <Pressable style={styles.playButtonStyle} onPress={onPlay}>
-                  <AppText style={styles.startEngintext}>
-                    {t('startEngine')}
+                <View style={styles.infoViewStyle}>
+                  <Pressable style={styles.playButtonStyle} onPress={onPlay}>
+                    <AppText style={styles.startEngintext}>
+                      {t('startEngine')}
+                    </AppText>
+                  </Pressable>
+                  <AppText
+                    onPress={onInfoClick}
+                    size={'xxl'}
+                    style={styles.infoText}>
+                    ⓘ
                   </AppText>
-                </Pressable>
+                </View>
               </View>
             </View>
           </View>
@@ -301,6 +314,10 @@ const EngineDetail: React.FC<any> = props => {
           />
         </View>
       </SafeAreaView>
+      <InfoModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+      />
     </View>
   );
 };
@@ -312,10 +329,10 @@ const styles = StyleSheet.create({
   topContainer: {
     justifyContent: isTablet() ? 'space-evenly' : 'flex-start',
     // flex: 1,
-    height: isTablet() ? '95%'  : '100%',
+    height: isTablet() ? '95%' : '100%',
     alignSelf: 'center',
     top: '2%',
-    width: isTablet() ? '90%'  : '100%'
+    width: isTablet() ? '90%' : '100%',
   },
   topView: {
     flexDirection: 'row',
@@ -333,7 +350,7 @@ const styles = StyleSheet.create({
   },
   shareIconStyle: {
     height: isTablet() ? 30 : 25,
-    width:  isTablet() ? 30 : 25,
+    width: isTablet() ? 30 : 25,
     tintColor: theme.color.yellow,
   },
   viewCOntainerStyle: {
@@ -345,20 +362,24 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     position: 'absolute',
-    width: isTablet() ? '100%' : '100%' ,
+    width: isTablet() ? '100%' : '100%',
     height: isTablet() ? '100%' : '100%',
     // top: '-8%',
     alignSelf: 'center',
-    backgroundColor: theme.color.white
+    backgroundColor: theme.color.white,
   },
   closeButton: {},
   closeText: {
     color: theme.color.red,
     fontWeight: 'bold',
   },
+  infoText: {
+    color: '#f0c208ff',
+    fontWeight: 'bold',
+  },
   leftPanel: {
-    width: isTablet() ? '30%' :   Platform.OS === 'ios' ?  '30%' : '26%',
-    height: isTablet() ? '100%' :   Platform.OS === 'ios' ?  '98%' : '97%',
+    width: isTablet() ? '30%' : Platform.OS === 'ios' ? '30%' : '26%',
+    height: isTablet() ? '100%' : Platform.OS === 'ios' ? '98%' : '97%',
     borderWidth: 1,
     borderColor: theme.color.black,
     justifyContent: 'space-evenly',
@@ -396,7 +417,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    padding: isTablet() ?  theme.spacing.md :  theme.spacing.sm,
+    padding: isTablet() ? theme.spacing.md : theme.spacing.sm,
     borderColor: theme.color.black,
   },
   speedContainer: {
@@ -410,7 +431,7 @@ const styles = StyleSheet.create({
   },
   centerPanel: {
     width: '40%',
-    height: isTablet() ? '100%' :   Platform.OS === 'ios' ?  '98%' : '97%',
+    height: isTablet() ? '100%' : Platform.OS === 'ios' ? '98%' : '97%',
     alignItems: 'center',
   },
   mainTitle: {
@@ -425,7 +446,11 @@ const styles = StyleSheet.create({
   },
   carousel: {
     width: isTablet() ? width * 0.34 : width * 0.32,
-    height: isTablet() ? height * 0.6 : Platform.OS === 'ios' ? height * 0.53 : height * 0.50,
+    height: isTablet()
+      ? height * 0.6
+      : Platform.OS === 'ios'
+      ? height * 0.53
+      : height * 0.5,
     // backgroundColor:'red'
   },
   carouselItem: {
@@ -434,7 +459,11 @@ const styles = StyleSheet.create({
   },
   carImage: {
     width: isTablet() ? width * 0.34 : width * 0.32,
-    height: isTablet() ? height * 0.6 :Platform.OS === 'ios' ? height * 0.53 : height * 0.50,
+    height: isTablet()
+      ? height * 0.6
+      : Platform.OS === 'ios'
+      ? height * 0.53
+      : height * 0.5,
     // backgroundColor:'pink'
   },
   dotsContainer: {
@@ -449,8 +478,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   rightPanel: {
-    width: isTablet() ? '30%' :   Platform.OS === 'ios' ?  '30%' : '26%',
-    height: isTablet() ? '100%' :   Platform.OS === 'ios' ?  '98%' : '97%',
+    width: isTablet() ? '30%' : Platform.OS === 'ios' ? '30%' : '26%',
+    height: isTablet() ? '100%' : Platform.OS === 'ios' ? '98%' : '97%',
     borderWidth: 1,
     borderColor: theme.color.black,
     justifyContent: 'space-evenly',
@@ -464,7 +493,7 @@ const styles = StyleSheet.create({
     // paddingBottom: theme.spacing.md,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: isTablet() ? '5%' : 0
+    marginBottom: isTablet() ? '5%' : 0,
   },
   playButtonStyle: {
     width: isTablet() ? 100 : 50,
@@ -482,6 +511,11 @@ const styles = StyleSheet.create({
     color: theme.color.white,
     textAlign: 'center',
     fontSize: isTablet() ? 16 : 8,
+  },
+  infoViewStyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
   },
 });
 
